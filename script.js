@@ -1,3 +1,4 @@
+const body = document.getElementsByTagName('body')[0]
 const container = document.querySelector('.container')
 const search = document.querySelector('.search-box button')
 const weatherBox = document.querySelector('.weather-box')
@@ -8,10 +9,16 @@ search.addEventListener('click', () => {
     const API_KEY = '4e273c75d77ef26369ff0520e047289d'
     const city = document.querySelector('.search-box input').value
 
-    if (city === '')
+    if (city === '') {
+        body.style.backgroundImage = 'none'
+        container.style.height = '105px'
+        weatherBox.style.display = 'none'
+        weatherDetails.style.display = 'none'
         return
+    }
     fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`).then(response => response.json()).then(json => {
         if (json.cod === '404') {
+            body.style.backgroundImage = 'url(./src/img/background-404.jpg)'
             container.style.height = '400px'
             weatherBox.style.display = 'none'
             weatherDetails.style.display = 'none'
@@ -30,19 +37,28 @@ search.addEventListener('click', () => {
 
         switch (json.weather[0].main) {
             case 'Clear':
+                body.style.backgroundImage = 'url(./src/img/background-clear-1.jpg)'
                 image.src = './src/img/clear.png'
                 break
             case 'Rain':
+                body.style.backgroundImage = 'url(./src/img/background-rain.jpg)'
                 image.src = './src/img/rain.png'
                 break
             case 'Snow':
+                body.style.backgroundImage = 'url(./src/img/background-snow.jpg)'
                 image.src = './src/img/snow.png'
                 break
             case 'Clouds':
+                body.style.backgroundImage = 'url(./src/img/background-cloud.jpg)'
                 image.src = './src/img/cloud.png'
                 break
             case 'Haze':
+                body.style.backgroundImage = 'url(./src/img/background-mist.jpg)'
                 image.src = './src/img/mist.png'
+                break
+            case 'Thunderstorm':
+                body.style.backgroundImage = 'url(./src/img/background-thunderstorm.jpg)'
+                image.src = './src/img/thunderstorm.png'
                 break
             default:
                 image.src = ''
@@ -51,7 +67,7 @@ search.addEventListener('click', () => {
         temperature.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`
         description.innerHTML = `${json.weather[0].description}`
         humidity.innerHTML = `${json.main.humidity}%`
-        wind.innerHTML = `${parseInt(json.wind.speed)}Km/h`
+        wind.innerHTML = `${parseInt(json.wind.speed)} Km/h`
 
         weatherBox.style.display = ''
         weatherDetails.style.display = ''
