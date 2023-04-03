@@ -28,9 +28,9 @@ body {
     position: relative;
     width: 400px;
     height: 105px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3));
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(20px);
     padding: 28px 32px;
     overflow: hidden;
     border-radius: 10px;
@@ -177,7 +177,7 @@ body {
 }
 
 .not-found p {
-    color: #06283D;
+    color: white;
     font-size: 22px;
     font-weight: 500;
     margin-top: 12px;

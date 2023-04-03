@@ -4,7 +4,6 @@ const search = document.querySelector('.search-box button')
 const weatherBox = document.querySelector('.weather-box')
 const weatherDetails = document.querySelector('.weather-details')
 const error404 = document.querySelector('.not-found')
-const msg = document.querySelector('.not-found p')
 
 search.addEventListener('click', () => {
     const API_KEY = '4e273c75d77ef26369ff0520e047289d'
@@ -17,6 +16,7 @@ search.addEventListener('click', () => {
         container.style.height = '105px'
         weatherBox.style.display = 'none'
         weatherDetails.style.display = 'none'
+        icon.style.color = 'white'
         return
     }
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`).then(response => response.json()).then(json => {
@@ -27,7 +27,6 @@ search.addEventListener('click', () => {
             weatherDetails.style.display = 'none'
             place.style.color = 'white'
             icon.style.color = 'white'
-            msg.style.color = 'white'
             error404.style.display = 'block'
             error404.classList.add('fadeIn')
             return
@@ -62,11 +61,15 @@ search.addEventListener('click', () => {
                 break
             case 'Haze':
                 body.style.backgroundImage = 'url(./src/img/background-mist.jpg)'
-                image.src = './src/img/mist.png'
+                image.src = './src/img/haze.png'
                 break
             case 'Thunderstorm':
                 body.style.backgroundImage = 'url(./src/img/background-thunderstorm.jpg)'
                 image.src = './src/img/thunderstorm.png'
+                break
+            case 'Mist':
+                body.style.backgroundImage = 'url(./src/img/background-mist.jpg)'
+                image.src = './src/img/mist.png'
                 break
             default:
                 image.src = ''
