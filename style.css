@@ -28,10 +28,12 @@ body {
     position: relative;
     width: 400px;
     height: 105px;
-    background-color: #fff;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     padding: 28px 32px;
     overflow: hidden;
-    border-radius: 18px;
+    border-radius: 10px;
     font-family: 'Roboto', sans-serif;
     transition: 0.6s ease-out;
     box-shadow: 0px 0px 21px 1px rgba(0, 0, 0, 0.75);
@@ -48,18 +50,19 @@ body {
 }
 
 .search-box input {
-    color: #06283D;
+    color: white;
     width: 80%;
     font-size: 24px;
     font-weight: 500;
     text-transform: uppercase;
     padding-left: 32px;
+    background: transparent;
 }
 
 .search-box input::placeholder {
     font-size: 20px;
     font-weight: 500;
-    color: #06283D;
+    color: white;
     text-transform: capitalize;
 }
 
@@ -81,7 +84,7 @@ body {
 
 .search-box i {
     position: absolute;
-    color: #06283D;
+    color: white;
     font-size: 28px;
 }
 

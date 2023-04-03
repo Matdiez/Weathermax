@@ -4,10 +4,13 @@ const search = document.querySelector('.search-box button')
 const weatherBox = document.querySelector('.weather-box')
 const weatherDetails = document.querySelector('.weather-details')
 const error404 = document.querySelector('.not-found')
+const msg = document.querySelector('.not-found p')
 
 search.addEventListener('click', () => {
     const API_KEY = '4e273c75d77ef26369ff0520e047289d'
     const city = document.querySelector('.search-box input').value
+    const place = document.querySelector('.search-box input')
+    const icon = document.querySelector('.search-box i')
 
     if (city === '') {
         body.style.backgroundImage = 'none'
@@ -22,12 +25,17 @@ search.addEventListener('click', () => {
             container.style.height = '400px'
             weatherBox.style.display = 'none'
             weatherDetails.style.display = 'none'
+            place.style.color = 'white'
+            icon.style.color = 'white'
+            msg.style.color = 'white'
             error404.style.display = 'block'
             error404.classList.add('fadeIn')
             return
         }
         error404.style.display = 'none'
         error404.classList.remove('fadeIn')
+        place.style.color = '#06283D'
+        icon.style.color = '#06283D'
 
         const image = document.querySelector('.weather-box img')
         const temperature = document.querySelector('.weather-box .temperature')
