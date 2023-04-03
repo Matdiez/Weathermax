@@ -19,7 +19,7 @@ search.addEventListener('click', () => {
         weatherDetails.style.display = 'none'
         return
     }
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`).then(response => response.json()).then(json => {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`).then(response => response.json()).then(json => {
         if (json.cod === '404') {
             body.style.backgroundImage = 'url(./src/img/background-404.jpg)'
             container.style.height = '400px'
