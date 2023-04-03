@@ -61,7 +61,7 @@ search.addEventListener('click', () => {
                 image.src = './src/img/cloud.png'
                 break
             case 'Haze':
-                body.style.backgroundImage = 'url(./src/img/background-mist.jpg)'
+                body.style.backgroundImage = 'url(./src/img/background-haze.jpg)'
                 image.src = './src/img/haze.png'
                 break
             case 'Thunderstorm':
