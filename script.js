@@ -48,6 +48,7 @@ search.addEventListener('click', () => {
                 image.src = './src/img/clear.png'
                 break
             case 'Rain':
+            case 'Drizzle':
                 body.style.backgroundImage = 'url(./src/img/background-rain.jpg)'
                 image.src = './src/img/rain.png'
                 break
@@ -68,6 +69,7 @@ search.addEventListener('click', () => {
                 image.src = './src/img/thunderstorm.png'
                 break
             case 'Mist':
+            case 'Fog':
                 body.style.backgroundImage = 'url(./src/img/background-mist.jpg)'
                 image.src = './src/img/mist.png'
                 break
